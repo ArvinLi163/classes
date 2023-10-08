@@ -14,8 +14,10 @@ object Spark06_RDD_Operator_Action {
     val sc = new SparkContext(sparkConf)
     val rdd: RDD[Int] = sc.makeRDD(List(1, 2, 3, 4))
     //TODO 行动算子 foreach
+    //println在Driver端执行
     rdd.collect().foreach(println)
     println("***************")
+    //println在Executor端执行
     rdd.foreach(println)
     sc.stop()
   }
