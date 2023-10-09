@@ -9,19 +9,20 @@ import org.apache.spark.{SparkConf, SparkContext}
  * @author: bansheng
  * @date: 2023/10/09 16:18
  * */
-object Spark03_RDD_Persist {
+object Spark04_RDD_Persist {
   def main(args: Array[String]): Unit = {
     val sparkConf: SparkConf = new SparkConf().setMaster("local[*]").setAppName("WordCount")
     val sc = new SparkContext(sparkConf)
+    //设置检查点路径
+    sc.setCheckpointDir("cp")
+
     val list: List[String] = List("Hello Spark", "Hello Scala")
     val RDD: RDD[String] = sc.makeRDD(list)
     val flatRDD: RDD[String] = RDD.flatMap(_.split(" "))
     val mapRDD: RDD[(String, Int)] = flatRDD.map(word => (word, 1))
 
-    //内存持久化
-    //mapRDD.cache()
-    //硬盘持久化
-    mapRDD.persist(StorageLevel.DISK_ONLY)
+    //检查点要落盘
+    mapRDD.checkpoint()
     val reduceRDD: RDD[(String, Int)] = mapRDD.reduceByKey(_ + _)
     reduceRDD.collect().foreach(println)
     println("*********************")
