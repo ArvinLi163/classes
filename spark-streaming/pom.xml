@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>sparking-streaming</artifactId>
+    <artifactId>spark-streaming</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
