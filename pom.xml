@@ -12,8 +12,6 @@
         <module>spark-core</module>
         <module>spark-sql</module>
         <module>spark-streaming</module>
-        <module>spark-sql</module>
-        <module>spark-streaming</module>
     </modules>
 
     <properties>
