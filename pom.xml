@@ -21,4 +21,23 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <!--父工程中配置依赖的统一管理-->
+    <dependencyManagement>
+        <dependencies>
+            <!--spark core-->
+            <dependency>
+                <groupId>org.apache.spark</groupId>
+                <artifactId>spark-core_2.12</artifactId>
+                <version>3.0.0</version>
+                <scope>compile</scope>
+            </dependency>
+            <!--spark sql-->
+            <dependency>
+                <groupId>org.apache.spark</groupId>
+                <artifactId>spark-sql_2.12</artifactId>
+                <version>3.0.0</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
 </project>
