@@ -9,7 +9,7 @@ import org.apache.spark.streaming.{Seconds, StreamingContext}
 import java.util.Random
 
 /**
- * @description: rddQueue
+ * @description: 自定义采集器
  * @author: bansheng
  * @date: 2024/01/02 15:03
  * */
